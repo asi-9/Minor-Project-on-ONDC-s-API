@@ -26,15 +26,15 @@ class LoginScreen extends StatelessWidget {
           margin: EdgeInsets.all(15),
           width: gWidth,
           height: gHeight,
-          child: Column(
-            children: [
+          child: SingleChildScrollView(child:Column(
+            children: const [
               TopImage(),
               LoginText(),
               //SizedBox(height: 20),
               EmailTextFiled(),
-              //SizedBox(
-              //height: 20,
-              //),
+              SizedBox(
+              height: 5,
+              ),
               PasswordTextFiled(),
               ForgotText(),
               SizedBox(
@@ -55,7 +55,7 @@ class LoginScreen extends StatelessWidget {
         ),
 
       ),
-    );
+    ));
 
   }
 }
@@ -113,9 +113,9 @@ class GoogleLoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FadeInDown(
-      delay: Duration(milliseconds: 300),
+      delay: const Duration(milliseconds: 300),
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 5),
+        margin: const EdgeInsets.symmetric(horizontal: 5),
         width: gWidth,
         height: gHeight / 15,
         child: ElevatedButton(
@@ -330,10 +330,13 @@ class PasswordTextFiled extends StatelessWidget {
   Widget build(BuildContext context) {
     return FadeInDown(
       delay: Duration(milliseconds: 1700),
-      child: RepTextFiled(
-        sufIcon: Icon(LineIcons.eyeSlash),
-        icon: LineIcons.alternateUnlock,
-        text: "Password",
+      child: const TextField(
+        decoration: InputDecoration(
+        icon: Icon(LineIcons.alternateUnlock),
+          border: OutlineInputBorder(),
+        // icon: LineIcons.alternateUnlock,
+        labelText: "Password",
+        )
       ),
     );
   }
@@ -349,11 +352,14 @@ class EmailTextFiled extends StatelessWidget {
   Widget build(BuildContext context) {
     return FadeInDown(
       delay: Duration(milliseconds: 1700),
-      child: RepTextFiled(
-        sufIcon: null,
-        icon: LineIcons.at,
-        text: "Email ID",
-      ),
+      child: const TextField(
+        obscureText: true,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(),
+          icon: Icon(LineIcons.at),
+          labelText: 'Email',
+        ),
+      )
     );
   }
 }
