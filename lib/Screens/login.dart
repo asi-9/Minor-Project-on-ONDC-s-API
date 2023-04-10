@@ -369,7 +369,7 @@ class LoginText extends StatelessWidget {
     return FadeInLeft(
       delay: Duration(milliseconds: 2000),
       child: Container(
-        margin: EdgeInsets.only(left:5,right: 90, top: 1),
+        margin: const EdgeInsets.only(left:5,right: 90, top: 1),
         width: gWidth*50,
         height: gHeight / 18,
         child: FittedBox(
@@ -395,8 +395,8 @@ class TopImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FadeInDown(
-      delay: Duration(milliseconds: 2000),
-      child: Container(
+      delay: const Duration(milliseconds: 2000),
+      child: SizedBox(
         width: gWidth,
         height: gHeight / 2.85,
         child: Image.asset(
