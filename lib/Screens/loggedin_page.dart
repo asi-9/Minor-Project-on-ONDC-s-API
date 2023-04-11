@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:get/get.dart';
 import '/controller/google_login_controller.dart';
 import '/Screens/login.dart';
-
+import 'package:minor/main.dart';
 
 
 class LoggedIN extends StatefulWidget {
@@ -51,7 +51,7 @@ class _LoggedINState extends State<LoggedIN> {
         Text(model.googleAccount!.displayName ??''),
         Text(model.googleAccount!.email),
         ActionChip(
-            label: Text("Logout"),
+            label: const Text("Logout"),
             onPressed: (){
               Fluttertoast.showToast(
                 msg: 'Thanks for Trying',
@@ -67,7 +67,6 @@ class _LoggedINState extends State<LoggedIN> {
               //       () => LoginScreen(),
               //   transition: Transition.leftToRight,
               // );
-
             }
         ),
       ],
@@ -75,9 +74,11 @@ class _LoggedINState extends State<LoggedIN> {
   }
 
   loginControls(BuildContext context) {
-    return 0;
+    return const Scaffold(
+      body: Text("This is the Home Page",
+      style: TextStyle(fontSize: 20)),
+    );
     //Get.to(SignUpScreen());
-
   }
 }
 

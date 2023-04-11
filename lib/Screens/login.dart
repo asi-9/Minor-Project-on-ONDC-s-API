@@ -27,29 +27,46 @@ class LoginScreen extends StatelessWidget {
           width: gWidth,
           height: gHeight,
           child: SingleChildScrollView(child:Column(
-            children: const [
+            children:  [
               TopImage(),
-              LoginText(),
+              //LoginText(),
               //SizedBox(height: 20),
-              EmailTextFiled(),
-              SizedBox(
-              height: 5,
-              ),
+              EmailTextFiled( ),
+              SizedBox(height: 5),
+
               PasswordTextFiled(),
               ForgotText(),
-              SizedBox(
-                height: 15,
-              ),
+              SizedBox(height: 13),
+
               LoginButton(),
-              SizedBox(height: 15),
+              SizedBox(height: 13),
+
               OrText(),
-              SizedBox(height: 15),
+              SizedBox(height: 13),
+
               GoogleLoginButton(),
-              SizedBox(
-                height: 15,
-              ),
+              SizedBox(height: 15,),
+
               FacebookLoginButton(),
               RegisterText(),
+              SizedBox(height: 20),
+
+              TextButton.icon(
+                onPressed: (){
+                  Navigator.of(context).pushNamed('/homePage');
+                },
+                icon: const Icon(
+                  Icons.skip_next,
+                  color: Colors.blueAccent,
+                ),
+                label: const Text(
+                    'Skip for now',
+                    style: TextStyle(
+                      color: Colors.blueAccent,
+                    )
+                ),
+              ),
+
             ],
           ),
         ),
@@ -77,29 +94,31 @@ class RegisterText extends StatelessWidget {
             transition: Transition.leftToRight,
           );
         },
-        child: Container(
-          margin: EdgeInsets.only(top: 22),
-          width: gWidth / 2,
-          height: gHeight / 32,
-          child: FittedBox(
-            child: RichText(
-              text: TextSpan(
-                text: "New to system unify ?",
-                style: TextStyle(color: text1Color),
-                children: [
-                  TextSpan(
-                    text: "  Sign Up",
-                    style: TextStyle(
-                      color: buttonColor,
-                      fontWeight: FontWeight.w500,
+        child:
+            Container(
+              margin: EdgeInsets.only(top: 22),
+              width: gWidth / 2,
+              height: gHeight / 32,
+              child: FittedBox(
+                child:
+                  RichText(
+                    text: TextSpan(
+                      text: "New to system unify ?",
+                      style: TextStyle(color: text1Color),
+                      children: [
+                        TextSpan(
+                          text: "  Sign Up",
+                          style: TextStyle(
+                            color: buttonColor,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ],
               ),
             ),
-          ),
         ),
-      ),
     );
   }
 }
@@ -331,12 +350,15 @@ class PasswordTextFiled extends StatelessWidget {
     return FadeInDown(
       delay: Duration(milliseconds: 1700),
       child: const TextField(
+          obscureText: true,
         decoration: InputDecoration(
-        icon: Icon(LineIcons.alternateUnlock),
-          border: OutlineInputBorder(),
+        //icon: Icon(LineIcons.alternateUnlock),
+          enabledBorder: UnderlineInputBorder(),
+          contentPadding: EdgeInsets.symmetric(vertical: 5),
         // icon: LineIcons.alternateUnlock,
-        labelText: "Password",
-        )
+          labelText: "Password",
+          isDense: true,
+        ),
       ),
     );
   }
@@ -353,11 +375,13 @@ class EmailTextFiled extends StatelessWidget {
     return FadeInDown(
       delay: Duration(milliseconds: 1700),
       child: const TextField(
-        obscureText: true,
+        obscureText: false,
         decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          icon: Icon(LineIcons.at),
+          enabledBorder: UnderlineInputBorder(),
+          //icon: Icon(LineIcons.at),
+          contentPadding: EdgeInsets.symmetric(vertical: 5),
           labelText: 'Email',
+          isDense: true,
         ),
       )
     );
@@ -365,32 +389,32 @@ class EmailTextFiled extends StatelessWidget {
 }
 
 // Top Login Text Components
-class LoginText extends StatelessWidget {
-  const LoginText({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return FadeInLeft(
-      delay: Duration(milliseconds: 2000),
-      child: Container(
-        margin: const EdgeInsets.only(left:5,right: 90, top: 1),
-        width: gWidth*50,
-        height: gHeight / 18,
-        child: FittedBox(
-          child: Text(
-            "Type in your Credentials",
-            style: TextStyle(
-              fontSize: 70,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
+// class LoginText extends StatelessWidget {
+//   const LoginText({
+//     Key? key,
+//   }) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return FadeInLeft(
+//       delay: Duration(milliseconds: 2000),
+//       child: Container(
+//         margin: const EdgeInsets.only(left:5,right: 90, top: 1),
+//         width: gWidth*50,
+//         height: gHeight / 18,
+//         child: FittedBox(
+//           child: Text(
+//             "Log In",
+//             style: TextStyle(
+//               fontSize: 70,
+//               fontWeight: FontWeight.bold,
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 // Top Image Components
 class TopImage extends StatelessWidget {
@@ -412,5 +436,4 @@ class TopImage extends StatelessWidget {
     );
   }
 }
-
 

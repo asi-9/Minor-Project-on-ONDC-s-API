@@ -9,9 +9,12 @@ import '/controller/google_login_controller.dart';
 import 'Screens/login.dart';
 import 'bindings/bindings.dart';
 import '/Screens/login.dart';
+import 'package:minor/Screens/loggedin_page.dart';
+
+import 'route_generator.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( const MyApp());
   final GoogleSignIn _googleSignIn = GoogleSignIn(
       scopes: [
         'email'
@@ -28,7 +31,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => GoogleSignInController(),
-          child: LoginScreen(),
+          child: const LoginScreen(),
         )
       ],
       child: GetMaterialApp(
@@ -36,7 +39,8 @@ class MyApp extends StatelessWidget {
         initialBinding: MyBindings(),
         debugShowCheckedModeBanner: false,
         title: 'Login UI - Flutter',
-        home: LoginScreen(),
+        home: const LoginScreen(),
+        onGenerateRoute: RouteGenerator.generateRoute,
       ),
     );
   }
