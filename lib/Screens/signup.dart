@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 //
-import '../screens/login.dart';
+import 'login.dart';
 import '../widget/rep_textfiled.dart';
 import '../utils/constanst.dart';
 
@@ -38,26 +38,6 @@ class SignUpScreen extends StatelessWidget {
               ),
               ContinueButton(),
               LoginText()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             ],
           ),
         ),
@@ -76,11 +56,11 @@ class LoginText extends StatelessWidget {
   Widget build(BuildContext context) {
     return FadeInDown(
       child: GestureDetector(
-          onTap: () {
-            Get.offAll(
-              () => LoginScreen(),
-              transition: Transition.leftToRight,
-            );
+        onTap: () {
+          Get.offAll(
+            () => LoginScreen(),
+            transition: Transition.leftToRight,
+          );
         },
         child: Container(
           margin: EdgeInsets.only(top: 22),
